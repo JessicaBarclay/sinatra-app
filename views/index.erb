@@ -1,3 +1,12 @@
-<h1>'My name is '<%=@names%></h1>
+<% if defined? @names %>
+<h1>'My name is <%= @names%>'</h1>
+<% end %>
 
 <img src='http://bit.ly/1eze8aE' style='border:1px dashed red'></img>
+
+<% unless defined? @names %>
+<form action="/named-cat" method="post">
+  <input type="text" name="names"><br>
+  <input type="submit" value="Submit">
+</form> 
+<% end %>
